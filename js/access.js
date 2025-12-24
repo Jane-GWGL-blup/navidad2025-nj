@@ -1,28 +1,34 @@
 export function showAccess() {
 
-const screen = document.getElementById("access-screen");
-const btn = document.getElementById("access-btn");
-const input = document.getElementById("access-input");
-const error = document.getElementById("access-error");
+const accessScreen = document.getElementById("access-screen");
+const accessBtn = document.getElementById("access-btn");
+const accessInput = document.getElementById("access-input");
+const accessError = document.getElementById("access-error");
 
-btn.addEventListener("click", async () => {
-  const value = input.value.trim();
+accessBtn.addEventListener("click", async () => {
+  const value = accessInput.value.trim();
+  accessError.textContent = "";
 
-  const res = await fetch("/api/check", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ password: value })
-  });
+  try {
+    const res = await fetch("/api/check", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: value })
+    });
 
-  if (res.ok) {
-    screen.style.opacity = "0";
-    setTimeout(() => screen.remove(), 500);
-  } else {
-    error.textContent = "Clave incorrecta ❌";
+    if (res.ok) {
+      accessScreen.style.opacity = "0";
+      accessScreen.style.pointerEvents = "none";
+      setTimeout(() => {
+        accessScreen.style.display = "none";
+      }, 600);
+    } else {
+      accessError.textContent = "Clave incorrecta ❌";
+    }
+  } catch (e) {
+    accessError.textContent = "Error de conexión ❌";
   }
 });
 
 }
-
-
 

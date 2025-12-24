@@ -16,7 +16,7 @@ let currentSong = 0;
 
 export function playlistIntro() {
     introMusic.src = playlist[currentSong];
-    introMusic.volume = 0.4;
+    introMusic.volume = 0.6;
     introMusic.play().catch(() => console.log("Autoplay bloqueado 😅"));
 
     // 👉 Cuando termina una canción pasa a la siguiente
