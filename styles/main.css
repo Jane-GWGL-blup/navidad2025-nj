@@ -1,0 +1,46 @@
+/* main.css */
+
+@import "access.css";
+@import "introbtn.css";
+@import "message.css";
+@import "snow.css";
+@import "gift.css";
+@import "click-gift.css";
+@import "lyricsbtn.css";
+@import "lyrics.css";
+
+:root {
+    --angle: 0deg;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(circle at top, #2a2a72, #000);
+    background-size: 300% 300%;
+    animation: bgFlow 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: "Georgia", serif;
+}
+
+/* Contenedor */
+.container {
+    display: flex;
+    perspective: 1000px;
+}
+
+@keyframes bgFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
