@@ -38,4 +38,3 @@ accessBtn.addEventListener("click", async () => {
 }
 
 
-//navidad2025-prettyboy
